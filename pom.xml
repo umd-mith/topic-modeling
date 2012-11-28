@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.umd.mith</groupId>
+  <artifactId>topic-modeling</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>MITH Topic Modeling Utilities</name>
+  <inceptionYear>2011</inceptionYear>
+
+  <scm>
+    <url>https://github.com/umd-mith/topic-modeling</url>
+    <connection>scm:git:git://github.com/umd-mith/topic-modeling.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:umd-mith/topic-modeling.git</developerConnection>
+  </scm>
+
+  <licenses>
+    <license>
+      <name>Apache 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>Maryland Institute for Technology in the Humanities</name>
+    <url>http://mith.umd.edu/</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>trbrown</id>
+      <name>Travis Brown</name>
+      <email>trbrown@umd.edu</email>
+      <organization>Maryland Institute for Technology in the Humanities</organization>
+      <organizationUrl>http://mith.umd.edu/</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <!--<modules>
+    <module>mallet</module>
+    <module>util</module>
+  </modules>-->
+
+  <properties>
+    <scala.version>2.10.0-RC3</scala.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>cc.mallet</groupId>
+      <artifactId>mallet</artifactId>
+      <version>2.0.7</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.8</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>3.8</version>
+    </dependency> 
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>13.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.scalaz</groupId>
+      <artifactId>scalaz-core_${scala.version}</artifactId>
+      <version>7.0.0-M5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.specs2</groupId>
+      <artifactId>specs2_${scala.version}</artifactId>
+      <version>1.12.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>jline</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <scalaVersion>${scala.version}</scalaVersion>
+          <charset>${project.build.sourceEncoding}</charset>
+          <jvmArgs>
+            <jvmArg>-Xmx1024m</jvmArg>
+          </jvmArgs>
+          <args>
+            <arg>-unchecked</arg>
+            <arg>-deprecation</arg>
+          </args> 
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>1.2</version>
+        <configuration>
+          <licenseName>apache_v2</licenseName>
+          <extraExtensions>
+            <scala>java</scala>
+          </extraExtensions>
+        </configuration>
+        <executions>
+          <execution>
+            <id>license-headers</id>
+            <goals>
+              <goal>update-file-header</goal>
+            </goals>
+            <phase>process-sources</phase>
+          </execution>
+          <execution>
+            <id>license-project</id>
+            <goals>
+              <goal>update-project-license</goal>
+            </goals>
+            <phase>process-sources</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+
