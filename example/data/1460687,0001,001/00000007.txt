@@ -1,0 +1,51 @@
+
+PREFACE.
+ALTHOUGH much has been written upon the poetical and romantic ideas contained in Beethoven's
+Pianoforte Sonatas, I am not aware that a complete analysis of each Sonata has ever been
+published. I hope, therefore, that this little work will prove useful to, and supply a want felt by, musical
+Students, to whom a thorough knowledge of the way in which Beethoven has treated the orthodox
+rules of form in these compositions, cannot but be of the greatest benefit.
+I wish to express my indebtedness for the assistance which a reference to the following works
+has afforded me during the composition of this Analysis:-" Musical Forms " (E. Pauer); " Composition "
+(Sir John Stainer); Article on " Form," Dictionary of Music (Sir George Grove); " Musical Form
+and General Composition" (Sir F. A. Gore Ouseley); and " Lectures on Musical Analysis" (H. C.
+Banister).
+H. A. HARDING.
+Bedford, 1889.
+A MODERN SONATA CONSISTS OF 2, 3, OR 4 MOVEMENTS, GENERALLY WRITTEN IN " SONATA" (a),
+"ARIA " (b), "RONDO," " AIR WITH VARIATIONS," OR "FUGUE " FORM, a short description of which is
+here given:"SONATA FORM" is divided into three parts.  The ist part (which may be conveniently called the
+" Enunciation ") commences with the principal, or Ist subject, in tonic key; followed by episodal
+passages (called the " Connecting Episode " in this work), leading to the 2nd subject in the
+dominant key (c) (should the tonic key be minor, the 2nd subject will generally be in the relative
+major key). A Coda is then added (frequently founded upon previous material), and the Ist part
+ends with double bar and repeat in the key of the 2nd subject.  The 2nd part consists of a
+Development of the two previous subjects-it should not commence in tonic key. The 3rd part
+contains a Recapitulation of the Ist subject in original key, succeeded by the connecting Episode
+altered so as to lead to the tonic key, in which the and subject re-appears. A Coda brings the
+movement to a close.
+" MODIFIED SONATA FORM."-The Sonata form is said to be modified, when some important part is
+only faintly shadowed forth, as in the case where a few accessory bars take the place of the 2nd
+subject, or where there is little or no development in the 2nd part.
+"ARIA FORM " is also divided into three parts. The characteristic of this form is, that the 3rd part
+is a repetition of the Ist part, though the repetition is sometimes a free one.  The Ist part
+contains the principal subject or subjects, it begins and ends in the same key. The 2nd part
+is formed on the same plan, but it begins and ends in a different key to the Ist part. The 3rd
+part is either a free, or an exact, repetition of the Ist part. The latter (which is indicated by
+" D. C.") is the older form. Sometimes each part may be a miniature example of Sonata, or Aria
+form, in itself, as in the case of a Minuet and Trio.
+" RONDO FORM " resembles Sonata form, excepting that the Ist subject recurs at the end of the
+Ist part in the original key, and generally, also, at the end of the last part; and that instead of
+the Development (2nd part) a 3rd subject is sometimes introduced. Occasionally there is no
+definite 2nd subject, but Episodes in various keys alternate with the principal subject.
+' AIR WITH VARIATIONS FORM " consists of a well-defined melody of definite length, followed by a
+series of " variations " upon it. The air appearing in "various kinds of figure and rhythm and
+"in varied division and complication of parts-changes of harmony, with contrapuntal and
+"even fugal treatment, provided the melodious order and phrasing is preserved throughout " (d).
+" FUGUE FORM."-For a full description of this Form, see " Primer on Fugue " (Higgs).
+(a). Sometimes called " Modern Binary," " Movement of Continuity," or " ist Movement Form."
+(b). Also called " Song form."
+(c). The rule (as regards the key of the 2nd subject) is often disregarded.
+(d). " Musical Forms " (Pauer).
+
+

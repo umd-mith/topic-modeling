@@ -27,6 +27,7 @@ import java.io.File
 import scala.collection.JavaConversions._
 import scala.collection.SortedMap
 
+/** An implementation of our Model trait for MALLET models. */
 class MalletModel(val model: ParallelTopicModel, val delta: Double)
   extends Model with ModelDefaults {
   def this(file: File, delta: Double) = this(ParallelTopicModel.read(file), delta)

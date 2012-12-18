@@ -25,10 +25,12 @@ import scala.collection.JavaConverters._
 
 import edu.umd.mith.topic.Model
 
+/** Base class for individual work sheet. */
 abstract class Sheet(val title: String) {
   def fill(sheet: PoiSheet, model: Model)
 }
 
+/** A sheet listing topic distributions for each document. */
 object DocTopicSheet extends Sheet("Document topic dists") {
   def fill(sheet: PoiSheet, model: Model) {
     val header = sheet.createRow(0)
@@ -51,6 +53,7 @@ object DocTopicSheet extends Sheet("Document topic dists") {
   }
 }
 
+/** A sheet listing words for each topic (descending by count). */
 object TopicWordFormSheet extends Sheet("Topic word dists (forms)") {
   def fill(sheet: PoiSheet, model: Model) {
     model.topics.zipWithIndex.foreach { case (topic, i) =>
@@ -65,6 +68,7 @@ object TopicWordFormSheet extends Sheet("Topic word dists (forms)") {
   }
 }
 
+/** A sheet listing word probabilities (corresponds to preceding). */
 object TopicWordProbSheet extends Sheet("Topic word dists (probs)") {
   def fill(sheet: PoiSheet, model: Model) {
     model.topics.zipWithIndex.foreach { case (topic, i) =>
@@ -79,6 +83,7 @@ object TopicWordProbSheet extends Sheet("Topic word dists (probs)") {
   }
 }
 
+/** A sheet listing the most similar document-document pairs. */
 case class DocDocEdgesSheet(size: Int = 2048)
   extends Sheet("Document-document edges") {
   def fill(sheet: PoiSheet, model: Model) {
@@ -88,8 +93,8 @@ case class DocDocEdgesSheet(size: Int = 2048)
     header.createCell(2).setCellValue("Symmetrized KL-divergence")
 
     model.docDocTableFixed(size).zipWithIndex.foreach {
-      case (((xi, yi), p), k) =>
-        val row = sheet.createRow(k + 1)
+      case (((xi, yi), p), i) =>
+        val row = sheet.createRow(i + 1)
         row.createCell(0).setCellValue(xi)
         row.createCell(1).setCellValue(yi)
         row.createCell(2).setCellValue(p)
@@ -97,6 +102,7 @@ case class DocDocEdgesSheet(size: Int = 2048)
   }
 }
 
+/** A sheet listing document-topic edges. */
 case class DocTopicEdgesSheet(threshhold: Double = 0.1)
   extends Sheet("Document-topic edges") {
   def fill(sheet: PoiSheet, model: Model) {
@@ -119,6 +125,7 @@ case class DocTopicEdgesSheet(threshhold: Double = 0.1)
   }
 }
 
+/** We combine a sequence of worksheets into a single spreadsheet. */
 case class Spreadsheet(sheets: Sheet*) {
   val book: Workbook = new org.apache.poi.xssf.streaming.SXSSFWorkbook(512)
 
@@ -135,14 +142,14 @@ case class Spreadsheet(sheets: Sheet*) {
   }
 }
 
+/** And a simple driver object to convert a MALLET model file. */
 object CreateSpreadsheet extends App {
   import edu.umd.mith.topic.mallet.MalletModel
   val spreadsheet = Spreadsheet(
     DocTopicSheet,
     TopicWordFormSheet,
     TopicWordProbSheet,
-    DocTopicEdgesSheet(),
-    DocDocEdgesSheet(10)
+    DocDocEdgesSheet()
   )
 
   spreadsheet.fill(new MalletModel(new File(args(0)), 0.1))

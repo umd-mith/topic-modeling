@@ -20,6 +20,10 @@
 package edu.umd.mith.topic
 
 package object util {
+  /** Symmetrized Kullback-Liebler divergence.
+    *
+    * For a very simple representation of two probability distributions.
+    */
   def skld[A](ps: Iterable[(Double, Double)]): Double = ps.map {
     case (x, y) => x * math.log(x / y) + y * math.log(y / x)
   }.sum / 2.0

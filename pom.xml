@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.umd.mith</groupId>
   <artifactId>topic-modeling</artifactId>
   <version>0.1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
   <name>MITH Topic Modeling Utilities</name>
-  <inceptionYear>2011</inceptionYear>
+  <inceptionYear>2012</inceptionYear>
 
   <scm>
     <url>https://github.com/umd-mith/topic-modeling</url>
@@ -25,8 +25,8 @@
   </licenses>
 
   <organization>
-    <name>Maryland Institute for Technology in the Humanities</name>
-    <url>http://mith.umd.edu/</url>
+    <name>The University of Maryland, College Park</name>
+    <url>http://www.umd.edu/</url>
   </organization>
 
   <developers>
@@ -43,13 +43,8 @@
     </developer>
   </developers>
 
-  <!--<modules>
-    <module>mallet</module>
-    <module>util</module>
-  </modules>-->
-
   <properties>
-    <scala.version>2.10.0-RC3</scala.version>
+    <scala.version>2.10.0-RC5</scala.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
   </properties>
@@ -76,6 +71,11 @@
       <version>1.1</version>
     </dependency>
     <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>2.1</version>
+    </dependency>
+    <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>13.0.1</version>
@@ -83,7 +83,7 @@
     <dependency>
       <groupId>org.scalaz</groupId>
       <artifactId>scalaz-core_${scala.version}</artifactId>
-      <version>7.0.0-M5</version>
+      <version>7.0.0-M6</version>
     </dependency>
     <dependency>
       <groupId>org.specs2</groupId>
@@ -104,11 +104,6 @@
   </dependencies>
 
   <build>
-    <resources>
-      <resource>
-        <directory>resources</directory>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
         <groupId>net.alchim31.maven</groupId>
