@@ -89,6 +89,12 @@ directory that you either just downloaded or cloned:
       -Dexec.mainClass="edu.umd.mith.topic.mallet.Trainer" \
       -Dexec.args="homeopathy-and-music example/data 40"
 
+Or on Windows:
+
+    mvn compile exec:java ^
+      -Dexec.mainClass="edu.umd.mith.topic.mallet.Trainer" ^
+      -Dexec.args="homeopathy-and-music example/data 40"
+
 The last line should contain three space-separated arguments:
 
   1. An identifier (no spaces) for the experiment: `homeopathy-and-music`.
@@ -115,7 +121,8 @@ By default the generated spreadsheet includes four worksheets:
 
 If you've already installed and run MALLET yourself, you may find it more
 useful to export your MALLET models to a spreadsheet in this format.
-To do this you can run the following command:
+To do this you can run the following command (again replacing `\` with `^` if
+you're on a Windows machine):
 
     mvn compile exec:java \
       -Dexec.mainClass="edu.umd.mith.topic.io.CreateSpreadsheet" \
