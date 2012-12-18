@@ -2,7 +2,7 @@ Topic modeling with MALLET (with a little help)
 ===============================================
 
 This project wraps [MALLET](http://mallet.cs.umass.edu/)
-(which is written in [Java](www.java.com/)) with some simplified interfaces
+(a machine learning toolkit written in [Java](www.java.com/)) with some simplified interfaces
 and utilities written in [Scala](http://www.scala-lang.org/), a programming
 language that runs on the Java Virtual Machine.
 It also uses the [Apache POI](http://poi.apache.org/) library to export
@@ -67,7 +67,8 @@ There are two main Scala packages:
 By default models are written to the `models` directory and spreadsheets to
 the `results` directory. There's some public domain example data from the
 [HathiTrust Digital Library](http://www.hathitrust.org/)
-in the `example` directory.
+in the `example` directory (a selection of nine nineteenth-century publications
+on either music or homeopathy).
 
 Running the tools
 -----------------
