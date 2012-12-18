@@ -8,7 +8,7 @@ language that runs on the Java Virtual Machine.
 It also uses the [Apache POI](http://poi.apache.org/) library to export
 MALLET topic model data to Excel spreadsheets.
 
-Installating Maven
+Installing Maven
 ------------------
 
 This project uses [Apache Maven](http://maven.apache.org/)
