@@ -82,7 +82,8 @@ contains plain text files that will be treated as your documents.
 The example data from the HathiTrust illustrates this layout, with pages as
 documents.
 
-To train the topic model, you can run the following, for example:
+To train the topic model, you can run the following, for example, from the `topic-modeling`
+directory that you either just downloaded or cloned:
 
     mvn compile exec:java \
       -Dexec.mainClass="edu.umd.mith.topic.mallet.Trainer" \
