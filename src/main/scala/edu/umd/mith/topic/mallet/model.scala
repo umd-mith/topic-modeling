@@ -58,6 +58,7 @@ class MalletModel(val model: ParallelTopicModel, val delta: Double)
       SortedMap.empty[String, AssignedDocument]
     ) { case (map, (document, i)) =>
       val id = document.instance.getName.toString
+      val label = document.instance.getLabeling.toString
       val topicAssignments = document.topicSequence.getFeatures
       val tokenIds =
         document.instance.getData.asInstanceOf[FeatureSequence].getFeatures
@@ -66,6 +67,7 @@ class MalletModel(val model: ParallelTopicModel, val delta: Double)
         id, 
         SimpleAssignedDocument(
           id,
+          label,
           tokenIds.map(this.vocabulary),
           topicAssignments.toIndexedSeq,
           this.model.getTopicProbabilities(document.topicSequence)

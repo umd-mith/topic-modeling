@@ -25,6 +25,7 @@ import scala.collection.SortedMap
 
 trait Document {
   def id: String
+  def label: String
   def tokens: IndexedSeq[String]
 }
 
@@ -118,6 +119,7 @@ trait Model {
 trait ModelDefaults { self: Model =>
   case class SimpleAssignedDocument(
     id: String,
+    label: String,
     tokens: IndexedSeq[String],
     tokenTopics: IndexedSeq[Int],
     topics: IndexedSeq[Double]

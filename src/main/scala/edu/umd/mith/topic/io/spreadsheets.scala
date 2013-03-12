@@ -35,17 +35,56 @@ object DocTopicSheet extends Sheet("Document topic dists") {
   def fill(sheet: PoiSheet, model: Model) {
     val header = sheet.createRow(0)
     header.createCell(0).setCellValue("Document identifier")
+    header.createCell(1).setCellValue("Label")
     
     (0 until model.topics.size).foreach { i =>
-      header.createCell(i + 1).setCellValue("topic-%02d".format(i))
+      header.createCell(i + 2).setCellValue("topic-%02d".format(i))
     }
 
     model.documents.iterator.zipWithIndex.foreach {
       case ((document, probs), i) =>
         val row = sheet.createRow(i + 1)
         row.createCell(0).setCellValue(document)
+        row.createCell(1).setCellValue(probs.label)
         probs.topics.zipWithIndex.foreach { case (prob, j) =>
-          row.createCell(j + 1).setCellValue(prob)
+          row.createCell(j + 2).setCellValue(prob)
+        }
+    }
+
+    sheet.setColumnWidth(0, 256 * 24)
+  }
+}
+
+/** A sheet listing token counts for each document. */
+object DocTokenSheet extends Sheet("Document token counts") {
+  def fill(sheet: PoiSheet, model: Model) {
+    val header = sheet.createRow(0)
+    header.createCell(0).setCellValue("Document identifier")
+    header.createCell(1).setCellValue("Label")
+    header.createCell(2).setCellValue("Token count")
+
+    val maxN = 500
+
+    val counts = model.documents.foldLeft(Map.empty[String, Int]) {
+      case (m, (_, doc)) => doc.tokens.foldLeft(m) {
+        case (m, t) => m.updated(t, m.getOrElse(t, 0) + 1)
+      }
+    }.toSeq.sortBy(-_._2).take(maxN)
+
+    val n = counts.size
+
+    counts.zipWithIndex.foreach { case ((t, _), i) =>
+      header.createCell(i + 2).setCellValue(t)
+    }
+
+    model.documents.iterator.zipWithIndex.foreach {
+      case ((document, probs), i) =>
+        val row = sheet.createRow(i + 1)
+        row.createCell(0).setCellValue(document)
+        row.createCell(1).setCellValue(probs.label)
+        row.createCell(2).setCellValue(probs.tokens.size)
+        counts.zipWithIndex.foreach { case ((t, _), j) =>
+          row.createCell(j + 3).setCellValue(probs.tokens.count(_ == t))
         }
     }
 
@@ -147,6 +186,7 @@ object CreateSpreadsheet extends App {
   import edu.umd.mith.topic.mallet.MalletModel
   val spreadsheet = Spreadsheet(
     DocTopicSheet,
+    DocTokenSheet,
     TopicWordFormSheet,
     TopicWordProbSheet,
     DocDocEdgesSheet()
