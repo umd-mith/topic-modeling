@@ -126,10 +126,10 @@ you're on a Windows machine):
 
     mvn compile exec:java \
       -Dexec.mainClass="edu.umd.mith.topic.io.CreateSpreadsheet" \
-      -Dexec.args="example.model example.xslx"
+      -Dexec.args="example.model example.xlsx"
 
 Here the first argument in the last line is your existing model (`example.model`),
-and the second is the filename that will be used for the generated spreadsheet (`example.xslx`).
+and the second is the filename that will be used for the generated spreadsheet (`example.xlsx`).
 
 Digging into the code
 ---------------------
