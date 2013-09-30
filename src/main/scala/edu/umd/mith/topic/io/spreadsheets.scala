@@ -74,7 +74,7 @@ object DocTokenSheet extends Sheet("Document token counts") {
     val n = counts.size
 
     counts.zipWithIndex.foreach { case ((t, _), i) =>
-      header.createCell(i + 2).setCellValue(t)
+      header.createCell(i + 3).setCellValue(t)
     }
 
     model.documents.iterator.zipWithIndex.foreach {
