@@ -96,7 +96,9 @@ class DirectoryDataSet(dir: File) extends DataSet {
   def getInstances() = {
     instances.addThruPipe(
       new FileIterator(
-        dir.listFiles.sorted, FileIterator.STARTING_DIRECTORIES, true
+        dir.listFiles.filter(_.isDirectory).sorted,
+        FileIterator.STARTING_DIRECTORIES,
+        true
       )
     )
     instances
